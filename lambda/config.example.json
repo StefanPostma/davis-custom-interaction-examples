@@ -1,0 +1,9 @@
+{
+  "CLIENT_SECRET": "client secret",
+  "PORT": 8080,
+  "JIRA_SERVER": "https://my.jira.server",
+  "JIRA_USER": "user",
+  "JIRA_PASSWORD": "password",
+  "JIRA_ISSUE_TYPE": "38",
+  "JIRA_PROJECT": "11790"
+}
