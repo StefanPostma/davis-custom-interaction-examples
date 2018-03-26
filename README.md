@@ -37,3 +37,11 @@ npm install
 # deploy
 serverless deploy
 ```
+
+# Disclaimer
+
+This software is experimental and currently NOT SUPPORTED by Dynatrace. Please use at your own risk. You can contact the author via Github issues.
+
+# License
+
+Licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
