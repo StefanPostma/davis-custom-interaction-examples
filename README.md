@@ -1,8 +1,8 @@
 # Davis Custom Actions Examples
 
-This repository is for examples of custom action webhook handlers for [davis](davis.dynatrace.com). Most of the events just cause the example projects to echo the event back to Davis, except the Full Text Interception and Extend Problem Detail events. The Full Text Interception expects to be set up with the regular expression `^echo` and echoes the user's text back to them. The Extend Problem Detail event expects JIRA configuration in `config.json` and will offer to create JIRA tickets.
+This repository is for examples of custom action webhook handlers for [davis](davis.dynatrace.com). Most of the events simply echo the event name back to davis, except the Full Text Interception and Extend Problem Detail events. The Full Text Interception expects to be set up with the regular expression `^echo` and echoes the user's text back to them. The Extend Problem Detail event expects JIRA configuration in `config.json` and will offer to create JIRA tickets.
 
-Note: The JIRA ticket creation uses HTTP Basic Authentication. It is not meant for production use and Dynatrace does not recommend the use of HTTP Basic Authentication in production JIRA installations.
+The JIRA ticket creation uses HTTP Basic Authentication. It is not meant for production use and Dynatrace does not recommend the use of HTTP Basic Authentication in production JIRA installations.
 
 ## Express
 
