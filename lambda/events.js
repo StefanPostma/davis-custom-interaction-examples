@@ -32,7 +32,16 @@ module.exports.postProblemDetail = (body, callback) => {
     config.JIRA_PROJECT
   ) {
     if (body.type === "validate") {
-      return callback(null, success(say("Would you like to create a JIRA ticket?", "Create Ticket")));
+      const actions = [
+        { name: "Assign to Dan", value: "Daniel.Dyla" },
+        { name: "Assign to Mike", value: "Michael.Beemer" },
+        { name: "Assign to Cory", value: "Cory.Woolf" },
+      ];
+      return callback(null, success(say("Would you like to create a JIRA ticket?", "Create Ticket", actions)));
+    }
+
+    if (req.body.type === "custom") {
+      return callback(null, success(say(`Assigned to: ${req.body.value}`)));
     }
 
     return jira.createTicket(

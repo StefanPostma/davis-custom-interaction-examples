@@ -32,7 +32,16 @@ module.exports.postProblemDetail = async (req, res, next) => {
     config.JIRA_PROJECT
   ) {
     if (req.body.type === "validate") {
-      return res.json(say("Would you like to create a JIRA ticket?", "Create Ticket"));
+      const actions = [
+        { name: "Assign to Dan", value: "Daniel.Dyla" },
+        { name: "Assign to Mike", value: "Michael.Beemer" },
+        { name: "Assign to Cory", value: "Cory.Woolf" },
+      ];
+      return res.json(say("Would you like to create a JIRA ticket?", "Create Ticket", actions));
+    }
+
+    if (req.body.type === "custom") {
+      return res.json(say(`Assigned to: ${req.body.value}`));
     }
 
     const ticket = await jira.createTicket(
