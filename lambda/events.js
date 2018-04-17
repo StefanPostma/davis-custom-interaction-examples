@@ -24,33 +24,33 @@ module.exports.postReport = (body, callback) => {
 };
 
 module.exports.postProblemDetail = (body, callback) => {
-  if (
-    config.JIRA_SERVER &&
-    config.JIRA_USER &&
-    config.JIRA_PASSWORD &&
-    config.JIRA_ISSUE_TYPE &&
-    config.JIRA_PROJECT
-  ) {
+  if (true) {
+    // config.JIRA_SERVER &&
+    // config.JIRA_USER &&
+    // config.JIRA_PASSWORD &&
+    // config.JIRA_ISSUE_TYPE &&
+    // config.JIRA_PROJECT
+  // ) {
     if (body.type === "validate") {
       const actions = [
         { name: "Assign to Dan", value: "Daniel.Dyla" },
         { name: "Assign to Mike", value: "Michael.Beemer" },
         { name: "Assign to Cory", value: "Cory.Woolf" },
       ];
-      return callback(null, success(say("Would you like to create a JIRA ticket?", "Create Ticket", actions)));
+      return callback(null, success(say("Would you like to assign a JIRA ticket?", null, actions)));
     }
 
-    if (req.body.type === "custom") {
+    // if (req.body.type === "custom") {
       return callback(null, success(say(`Assigned to: ${req.body.value}`)));
-    }
+    // }
 
-    return jira.createTicket(
-      body.payload.problem.title,
-      body.payload.problem.url,
-      (err, ticket) => {
-        if (err) { return callback(err); }
-        return callback(null, success(say(`Created ticket ${ticket.key} assigned to ${config.JIRA_USER}.`)));
-      });
+    // return jira.createTicket(
+    //   body.payload.problem.title,
+    //   body.payload.problem.url,
+    //   (err, ticket) => {
+    //     if (err) { return callback(err); }
+    //     return callback(null, success(say(`Created ticket ${ticket.key} assigned to ${config.JIRA_USER}.`)));
+    //   });
   }
   return callback(null, success(say("Add JIRA configuration parameters to 'config.json' to create a JIRA ticket.")));
 };

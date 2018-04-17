@@ -64,3 +64,17 @@ module.exports.postEntityDetail = (req, res, next) => {
   return res.json(say(`Received confirmation for event ${req.body.event}.`));
 };
 
+module.exports.postProblemNotification = (req, res, next) => {
+  if (req.body.type === "validate") {
+    const actions = [
+      { name: "Assign to Dan", value: "Daniel.Dyla" },
+      { name: "Assign to Mike", value: "Michael.Beemer" },
+      { name: "Assign to Cory", value: "Cory.Woolf" },
+    ];    return res.json(say("this is inserted from the webhook", "test button maybe", actions));
+  }
+  if (req.body.type === "custom") {
+    return res.json(say(`Assigned to: ${req.body.value}`));
+  }
+
+  return res.json(delegate());
+}
